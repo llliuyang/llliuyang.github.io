@@ -484,8 +484,7 @@
                 <blockquote>
 <p>在上一节中学习了<code>$_FILES</code>的基本使用，本节将继续学习它的进阶用法：文件的上传与 校验</p>
 </blockquote>
-<p>##1、创建上传表单</p>
-<pre class="line-numbers language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">method</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>post<span class="token punctuation">"</span></span> <span class="token attr-name">action</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file.php<span class="token punctuation">"</span></span> <span class="token attr-name">enctype</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>multipart/form-data<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<h2 id="1、创建上传表单"><a href="#1、创建上传表单" class="headerlink" title="1、创建上传表单"></a>1、创建上传表单</h2><pre class="line-numbers language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">method</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>post<span class="token punctuation">"</span></span> <span class="token attr-name">action</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file.php<span class="token punctuation">"</span></span> <span class="token attr-name">enctype</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>multipart/form-data<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span> <span class="token attr-name">for</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>submit<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>提交<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
@@ -497,8 +496,7 @@
 <li><code><input></code> 标签的 <code>type="file"</code>属性规定了应该把输入作为文件来处理。举例来说，当在浏览器中预览时，会看到输入框旁边有一个浏览按钮。</li>
 </ul>
 </blockquote>
-<p>##2、创建上传脚本</p>
-<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<h2 id="2、创建上传脚本"><a href="#2、创建上传脚本" class="headerlink" title="2、创建上传脚本"></a>2、创建上传脚本</h2><pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
 <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token string">"file"</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">"error"</span><span class="token punctuation">]</span> <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
     <span class="token keyword">echo</span> <span class="token string">"错误："</span> <span class="token punctuation">.</span> <span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token string">"file"</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">"error"</span><span class="token punctuation">]</span> <span class="token punctuation">.</span> <span class="token string">"&lt;br>"</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
@@ -513,8 +511,7 @@
 </blockquote>
 <p><strong>第二参数详解</strong><br>|参数|释义|<br>|—|—|<br>|name|上传文件的名称|<br>|type|上传文件的类型|<br>|size|上传文件的大小，以字节（B）计算|<br>|tmp_name| 文件被上传后在服务端储存的临时文件名，一般是系统默认|<br>|error|该文件上传相关的错误代码。<br>PHP 4.2.0 版本中增加，PHP4.3之后变成常量|</p>
 <p><strong>error错误类型和值</strong><br>|错误类型|值 - 说明|<br>|—|—|<br>|UPLOAD_ERR_OK |<strong>0</strong> 。没有错误发生，文件上传成功|<br>|UPLOAD_ERR_INI_SIZE |<strong>1</strong> 。上传的文件超过了 php.ini 中 upload_max_filesize选项限制的值|<br>|UPLOAD_ERR_FORM_SIZE |<strong>2</strong> 。上传文件的大小超过了 HTML 表单中 MAX_FILE_SIZE 选项指定的值|<br>|UPLOAD_ERR_PARTIAL |<strong>3</strong> 。文件只有部分被上传|<br>|UPLOAD_ERR_NO_FILE |<strong>4</strong> 。文件没有被上传|<br>|UPLOAD_ERR_NO_TMP_DIR |<strong>6</strong> 。找不到临时文件夹。PHP 4.3.10 和 PHP 5.0.3 引进|<br>|UPLOAD_ERR_CANT_WRITE |<strong>7</strong> 。文件写入失败。PHP 5.1.0 引进|</p>
-<p>##3、对上传文件进行限制</p>
-<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<h2 id="3、对上传文件进行限制"><a href="#3、对上传文件进行限制" class="headerlink" title="3、对上传文件进行限制"></a>3、对上传文件进行限制</h2><pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
 <span class="token comment" spellcheck="true">//设置允许用户上传的文件类型</span>
 <span class="token variable">$allowExts</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string">'jpg'</span><span class="token punctuation">,</span><span class="token string">'jpeg'</span><span class="token punctuation">,</span><span class="token string">'gif'</span><span class="token punctuation">,</span><span class="token string">'png'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">//使用explode()语法将文件名分成两段</span>
@@ -537,8 +534,7 @@
 <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span><span class="token comment" spellcheck="true">//如果文件后缀名不符合规定，则给出提示</span>
     <span class="token keyword">echo</span>  <span class="token string">"错误的文件格式"</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>##4、对上传的文件进行保存</p>
-<blockquote>
+<h2 id="4、对上传的文件进行保存"><a href="#4、对上传的文件进行保存" class="headerlink" title="4、对上传的文件进行保存"></a>4、对上传的文件进行保存</h2><blockquote>
 <p><strong>注意：</strong>文件被上传结束后，默认地被存储在了临时目录中，这时您必须将它从临时目录中删除或移动到其它地方，如果没有，不管是否上传成功，脚本执行完后临时目录里的文件肯定会被删除。所以在删除之前要用PHP的 <code>copy()</code> 或者 <code>move_uploaded_file()</code>将它复制或移动到其它位置，此时，才算完成了上传文件过程。</p>
 </blockquote>
 <pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
@@ -852,8 +848,7 @@
                             
 在上一节中学习了$_FILES的基本使用，本节将继续学习它的进阶用法：文件的上传与 校验
 
-##1、创建上传表单
-&lt;form method="post" action="file.php" enctype="multipart/fo
+1、创建上传表单&lt;form method="post" action="file.php" enctype="multipart/form-
                         
                     </div>
                     <div class="publish-info">
