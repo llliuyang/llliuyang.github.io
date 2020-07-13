@@ -492,8 +492,8 @@
 <blockquote>
 <p>说明：</p>
 <ul>
-<li><code></code><form><code></code>标签的 <code>enctype</code>属性规定了在提交表单时要使用哪种内容类型。在表单需要二进制数据时，比如文件内容，请使用 “multipart/form-data”。</form></li>
-<li><code><input></code> 标签的 <code>type="file"</code>属性规定了应该把输入作为文件来处理。举例来说，当在浏览器中预览时，会看到输入框旁边有一个浏览按钮。</li>
+<li><code>form</code>标签的 <code>enctype</code>属性规定了在提交表单时要使用哪种内容类型。在表单需要二进制数据时，比如文件内容，请使用 <code>multipart/form-data</code>。</li>
+<li><code>input</code> 标签的 <code>type="file"</code>属性规定了应该把输入作为文件来处理。举例来说，当在浏览器中预览时，会看到输入框旁边有一个浏览按钮。</li>
 </ul>
 </blockquote>
 <h2 id="2、创建上传脚本"><a href="#2、创建上传脚本" class="headerlink" title="2、创建上传脚本"></a>2、创建上传脚本</h2><pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
@@ -509,8 +509,72 @@
 <blockquote>
 <p>说明：以上语法第一个参数是表单中input的<code>name</code>，第二个参数为文件上传属性，具体参数见下表</p>
 </blockquote>
-<p><strong>第二参数详解</strong><br>|参数|释义|<br>|—|—|<br>|name|上传文件的名称|<br>|type|上传文件的类型|<br>|size|上传文件的大小，以字节（B）计算|<br>|tmp_name| 文件被上传后在服务端储存的临时文件名，一般是系统默认|<br>|error|该文件上传相关的错误代码。<br>PHP 4.2.0 版本中增加，PHP4.3之后变成常量|</p>
-<p><strong>error错误类型和值</strong><br>|错误类型|值 - 说明|<br>|—|—|<br>|UPLOAD_ERR_OK |<strong>0</strong> 。没有错误发生，文件上传成功|<br>|UPLOAD_ERR_INI_SIZE |<strong>1</strong> 。上传的文件超过了 php.ini 中 upload_max_filesize选项限制的值|<br>|UPLOAD_ERR_FORM_SIZE |<strong>2</strong> 。上传文件的大小超过了 HTML 表单中 MAX_FILE_SIZE 选项指定的值|<br>|UPLOAD_ERR_PARTIAL |<strong>3</strong> 。文件只有部分被上传|<br>|UPLOAD_ERR_NO_FILE |<strong>4</strong> 。文件没有被上传|<br>|UPLOAD_ERR_NO_TMP_DIR |<strong>6</strong> 。找不到临时文件夹。PHP 4.3.10 和 PHP 5.0.3 引进|<br>|UPLOAD_ERR_CANT_WRITE |<strong>7</strong> 。文件写入失败。PHP 5.1.0 引进|</p>
+<p><strong>第二参数详解</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>释义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>name</td>
+<td>上传文件的名称</td>
+</tr>
+<tr>
+<td>type</td>
+<td>上传文件的类型</td>
+</tr>
+<tr>
+<td>size</td>
+<td>上传文件的大小，以字节（B）计算</td>
+</tr>
+<tr>
+<td>tmp_name</td>
+<td>文件被上传后在服务端储存的临时文件名，一般是系统默认</td>
+</tr>
+<tr>
+<td>error</td>
+<td>该文件上传相关的错误代码。<br>PHP 4.2.0 版本中增加，PHP4.3之后变成常量</td>
+</tr>
+</tbody></table>
+<p><strong>error错误类型和值</strong></p>
+<table>
+<thead>
+<tr>
+<th>错误类型</th>
+<th>值 - 说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>UPLOAD_ERR_OK</td>
+<td><strong>0</strong> 。没有错误发生，文件上传成功</td>
+</tr>
+<tr>
+<td>UPLOAD_ERR_INI_SIZE</td>
+<td><strong>1</strong> 。上传的文件超过了 php.ini 中 upload_max_filesize选项限制的值</td>
+</tr>
+<tr>
+<td>UPLOAD_ERR_FORM_SIZE</td>
+<td><strong>2</strong> 。上传文件的大小超过了 HTML 表单中 MAX_FILE_SIZE 选项指定的值</td>
+</tr>
+<tr>
+<td>UPLOAD_ERR_PARTIAL</td>
+<td><strong>3</strong> 。文件只有部分被上传</td>
+</tr>
+<tr>
+<td>UPLOAD_ERR_NO_FILE</td>
+<td><strong>4</strong> 。文件没有被上传</td>
+</tr>
+<tr>
+<td>UPLOAD_ERR_NO_TMP_DIR</td>
+<td><strong>6</strong> 。找不到临时文件夹。PHP 4.3.10 和 PHP 5.0.3 引进</td>
+</tr>
+<tr>
+<td>UPLOAD_ERR_CANT_WRITE</td>
+<td><strong>7</strong> 。文件写入失败。PHP 5.1.0 引进</td>
+</tr>
+</tbody></table>
 <h2 id="3、对上传文件进行限制"><a href="#3、对上传文件进行限制" class="headerlink" title="3、对上传文件进行限制"></a>3、对上传文件进行限制</h2><pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
 <span class="token comment" spellcheck="true">//设置允许用户上传的文件类型</span>
 <span class="token variable">$allowExts</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string">'jpg'</span><span class="token punctuation">,</span><span class="token string">'jpeg'</span><span class="token punctuation">,</span><span class="token string">'gif'</span><span class="token punctuation">,</span><span class="token string">'png'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
