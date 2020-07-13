@@ -329,7 +329,7 @@
     
     <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
 <style>
-    #articleContent h1::before,
+    /* #articleContent h1::before,
     #articleContent h2::before,
     #articleContent h3::before,
     #articleContent h4::before,
@@ -340,7 +340,7 @@
         height: 100px;
         margin-top: -100px;
         visibility: hidden;
-    }
+    } */
 
     #articleContent :focus {
         outline: none;
@@ -487,8 +487,60 @@
 <h2 id="1、fopen-函数：在-PHP-中-打开文件"><a href="#1、fopen-函数：在-PHP-中-打开文件" class="headerlink" title="1、fopen()函数：在 PHP 中 打开文件"></a>1、fopen()函数：在 PHP 中 打开文件</h2><blockquote>
 <p>使用方法：<code>fopen(参数1,参数2)</code></p>
 </blockquote>
-<p><strong>参数说明：</strong><br>| 参数 1| 参数 2 |<br>| —- | —- |<br>| 要打开的文件的名称 &nbsp;&nbsp;例如：readme.txt | 规定打开文件使用模式 |</p>
-<p><strong>打开文件可使用的模式表</strong><br>|模式|描述|<br>| —| —|<br>|r|<strong>只读。</strong> 在文件开头开始|<br>|r+|<strong>读/写。</strong>在文件的开头开始|<br>|w|<strong>只写。</strong>打开并清空文件的内容；如果文件不存在，则创建新文件|<br>|w+|<strong>读/写。</strong>打开并清空文件的内容；如果文件不存在，则创建新文件|<br>|a|<strong>追加。</strong>打开并向文件末尾进行写操作，如果文件不存在，则创建新文件|<br>|a+|<strong>读/追加。</strong>通过向文件末尾写内容，来保持文件内容|<br>|x|<strong>只写。</strong>创建新文件。如果文件已存在，则返回 FALSE 和一个错误|<br>|x+|<strong>读/写。</strong>创建新文件。如果文件已存在，则返回 FALSE 和一个错误|</p>
+<p><strong>参数说明：</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数 1</th>
+<th>参数 2</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>要打开的文件的名称 &nbsp;&nbsp;例如：readme.txt</td>
+<td>规定打开文件使用模式</td>
+</tr>
+</tbody></table>
+<p><strong>打开文件可使用的模式表</strong></p>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>r</td>
+<td><strong>只读。</strong> 在文件开头开始</td>
+</tr>
+<tr>
+<td>r+</td>
+<td><strong>读/写。</strong>在文件的开头开始</td>
+</tr>
+<tr>
+<td>w</td>
+<td><strong>只写。</strong>打开并清空文件的内容；如果文件不存在，则创建新文件</td>
+</tr>
+<tr>
+<td>w+</td>
+<td><strong>读/写。</strong>打开并清空文件的内容；如果文件不存在，则创建新文件</td>
+</tr>
+<tr>
+<td>a</td>
+<td><strong>追加。</strong>打开并向文件末尾进行写操作，如果文件不存在，则创建新文件</td>
+</tr>
+<tr>
+<td>a+</td>
+<td><strong>读/追加。</strong>通过向文件末尾写内容，来保持文件内容</td>
+</tr>
+<tr>
+<td>x</td>
+<td><strong>只写。</strong>创建新文件。如果文件已存在，则返回 FALSE 和一个错误</td>
+</tr>
+<tr>
+<td>x+</td>
+<td><strong>读/写。</strong>创建新文件。如果文件已存在，则返回 FALSE 和一个错误</td>
+</tr>
+</tbody></table>
 <blockquote>
 <p>特别说明：如果 fopen() 函数无法打开指定文件，则返回 0 (false)。<br>因此可以使用<code>exit()</code>和<code>fopen()</code>一起使用，用于返回错误信息。</p>
 </blockquote>
@@ -597,7 +649,7 @@
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/about" target="_blank">刘洋</a>
+                    <a href="/" target="_blank">塵影学习笔记</a>
                     !
                 </span>
             </div>
@@ -967,6 +1019,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
         let tocHeading = 'toc-heading-';
         $('#toc-content a').each(function () {
             $(this).attr('href', '#' + tocHeading + (++i));
+
         });
 
         // modify the heading title id to support Chinese.
