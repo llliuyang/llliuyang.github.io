@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="您好，世界, 学习,笔记,刘洋,塵影">
+    <meta name="keywords" content="$_FILES(一)文件的基本操作, 学习,笔记,刘洋,塵影">
     <meta name="description" content="学习笔记，一起奋斗">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>您好，世界 | 塵影学习笔记</title>
+    <title>$_FILES(一)文件的基本操作 | 塵影学习笔记</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -309,12 +309,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://s1.ax1x.com/2020/07/12/U3huCR.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://s1.ax1x.com/2020/07/13/UYde3D.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">您好，世界</h1>
+                    <h1 class="description center-align post-title">$_FILES(一)文件的基本操作</h1>
                 </div>
             </div>
         </div>
@@ -431,12 +431,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%BC%80%E7%AF%87/">
-                                <span class="chip bg-color">开篇</span>
+                            <a href="/tags/php/">
+                                <span class="chip bg-color">php</span>
                             </a>
                         
-                            <a href="/tags/%E6%9D%82%E8%B0%88/">
-                                <span class="chip bg-color">杂谈</span>
+                            <a href="/tags/FILES/">
+                                <span class="chip bg-color">$_FILES</span>
                             </a>
                         
                     </div>
@@ -447,8 +447,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E9%9A%8F%E7%AC%94/" class="post-category">
-                                随笔
+                            <a href="/categories/PHP%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                PHP学习
                             </a>
                         
                     </div>
@@ -460,7 +460,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-07-12
+                    2020-07-13
                 </div>
                 
 
@@ -469,7 +469,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    322
+                    602
                 </div>
                 
 
@@ -481,12 +481,67 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>关于建立个人博客的想法已有一段时间了，总是觉得没时间、很忙、下次吧…真正操作起来，其实并没有那么复杂，就是一次又一次的去拖延，这是一个并不好的习惯，但我们都或多或少的有着这样的坏毛病。</p>
-<p>关于博客的框架选择，之前用过<code>wordpress</code>、<code>dedeCMS</code>、<code>ECMS</code>、<code>phpMyWind</code>等，最终还是选择了hexo。主要还是觉得简单易用，作为IT男而言，用<code>markdown</code>来记录自己的成长，那真的是太酷了！</p>
-<p>本博客主要用来记录个人的学习笔记以及遇到的困难和解决方案，方便自己复习，就当是鞭策自己进步的一种方案。如果某一点让大家有了共鸣或是有帮助，那真的是天大的良善！</p>
-<p>有共同学习的朋友，可以加QQ或是微信共同进步，互相打气，互相监督，让技术，为我们引路，开拓视野，拥抱崭新的未来！</p>
-<p>最后：</p>
-<pre><code>hello world! i'm coming~</code></pre><script>
+                <blockquote>
+<p>文档回顾：PHP 中预定义了几个超级全局变量（superglobals） ，PHP 4.1.0 之后被启用，这意味着它们在一个脚本的全部作用域中都可用。你不需要特别说明，就可以在函数及类中使用。</p>
+</blockquote>
+<h2 id="1、fopen-函数：在-PHP-中-打开文件"><a href="#1、fopen-函数：在-PHP-中-打开文件" class="headerlink" title="1、fopen()函数：在 PHP 中 打开文件"></a>1、fopen()函数：在 PHP 中 打开文件</h2><blockquote>
+<p>使用方法：<code>fopen(参数1,参数2)</code></p>
+</blockquote>
+<p><strong>参数说明：</strong><br>| 参数 1| 参数 2 |<br>| —- | —- |<br>| 要打开的文件的名称 &nbsp;&nbsp;例如：readme.txt | 规定打开文件使用模式 |</p>
+<p><strong>打开文件可使用的模式表</strong><br>|模式|描述|<br>| —| —|<br>|r|<strong>只读。</strong> 在文件开头开始|<br>|r+|<strong>读/写。</strong>在文件的开头开始|<br>|w|<strong>只写。</strong>打开并清空文件的内容；如果文件不存在，则创建新文件|<br>|w+|<strong>读/写。</strong>打开并清空文件的内容；如果文件不存在，则创建新文件|<br>|a|<strong>追加。</strong>打开并向文件末尾进行写操作，如果文件不存在，则创建新文件|<br>|a+|<strong>读/追加。</strong>通过向文件末尾写内容，来保持文件内容|<br>|x|<strong>只写。</strong>创建新文件。如果文件已存在，则返回 FALSE 和一个错误|<br>|x+|<strong>读/写。</strong>创建新文件。如果文件已存在，则返回 FALSE 和一个错误|</p>
+<blockquote>
+<p>特别说明：如果 fopen() 函数无法打开指定文件，则返回 0 (false)。<br>因此可以使用<code>exit()</code>和<code>fopen()</code>一起使用，用于返回错误信息。</p>
+</blockquote>
+<p><strong>实例</strong></p>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+   <span class="token variable">$file</span><span class="token operator">=</span><span class="token function">fopen</span><span class="token punctuation">(</span><span class="token string">"readme.txt"</span><span class="token punctuation">,</span><span class="token string">"r"</span><span class="token punctuation">)</span> <span class="token keyword">or</span> <span class="token function">exit</span><span class="token punctuation">(</span><span class="token string">"打开文件失败!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token delimiter">?></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h2 id="2、fclose-函数：关闭文件"><a href="#2、fclose-函数：关闭文件" class="headerlink" title="2、fclose()函数：关闭文件"></a>2、fclose()函数：关闭文件</h2><blockquote>
+<p>使用方法：<code>fclose($file)</code></p>
+</blockquote>
+<p><strong>实例</strong></p>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+   <span class="token variable">$file</span><span class="token operator">=</span><span class="token function">fopen</span><span class="token punctuation">(</span><span class="token string">"readme.txt"</span><span class="token punctuation">,</span><span class="token string">"r"</span><span class="token punctuation">)</span> <span class="token keyword">or</span> <span class="token function">exit</span><span class="token punctuation">(</span><span class="token string">"打开文件失败!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token comment" spellcheck="true">// 执行代码</span>
+
+   <span class="token function">fclose</span><span class="token punctuation">(</span><span class="token variable">$file</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token delimiter">?></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="3、feof-函数：检查文件末尾（EOF）"><a href="#3、feof-函数：检查文件末尾（EOF）" class="headerlink" title="3、feof()函数：检查文件末尾（EOF）"></a>3、feof()函数：检查文件末尾（EOF）</h2><blockquote>
+<p>使用方法：<code>feof($file)</code> &gt;<strong>特别注意：在 w 、a 和 x 模式下，您无法读取打开的文件！</strong></p>
+</blockquote>
+<p><strong>实例</strong></p>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">feof</span><span class="token punctuation">(</span><span class="token variable">$file</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">echo</span> <span class="token string">"这里是文件结尾"</span> <span class="token punctuation">;</span> <span class="token punctuation">}</span>
+<span class="token delimiter">?></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h2 id="4、读取文件"><a href="#4、读取文件" class="headerlink" title="4、读取文件"></a>4、读取文件</h2><p><strong>在 PHP 中，读取文件以下方式</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">方式</th>
+<th align="center">fgets()</th>
+<th align="center">fgetc()</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">描述</td>
+<td align="center">逐行读取文件</td>
+<td align="center">逐字符读取文件</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>说明：在调用以上任何函数之后，文件指针会移动到下一行。</p>
+</blockquote>
+<p><strong>实例</strong></p>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token variable">$file</span><span class="token operator">=</span><span class="token function">fopen</span><span class="token punctuation">(</span><span class="token string">"readme.txt"</span><span class="token punctuation">,</span><span class="token string">"r"</span><span class="token punctuation">)</span> <span class="token keyword">or</span> <span class="token function">exit</span><span class="token punctuation">(</span><span class="token string">"打开文件失败!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">feof</span><span class="token punctuation">(</span><span class="token variable">$file</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">echo</span> <span class="token function">fgets</span><span class="token punctuation">(</span><span class="token variable">$file</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token comment" spellcheck="true">// echo fgetc($file);</span>
+<span class="token punctuation">}</span>
+<span class="token function">fclose</span><span class="token punctuation">(</span><span class="token variable">$file</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token delimiter">?></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -529,7 +584,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://llliuyang.github.io/sui-bi/nin-hao-shi-jie/">https://llliuyang.github.io/sui-bi/nin-hao-shi-jie/</a>
+                    <a href="https://llliuyang.github.io/php-xue-xi/files-yi-wen-jian-de-ji-ben-cao-zuo/">https://llliuyang.github.io/php-xue-xi/files-yi-wen-jian-de-ji-ben-cao-zuo/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -567,12 +622,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%BC%80%E7%AF%87/">
-                                    <span class="chip bg-color">开篇</span>
+                                <a href="/tags/php/">
+                                    <span class="chip bg-color">php</span>
                                 </a>
                             
-                                <a href="/tags/%E6%9D%82%E8%B0%88/">
-                                    <span class="chip bg-color">杂谈</span>
+                                <a href="/tags/FILES/">
+                                    <span class="chip bg-color">$_FILES</span>
                                 </a>
                             
                         </div>
@@ -744,21 +799,22 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/php-xue-xi/files-yi-wen-jian-de-ji-ben-cao-zuo/">
+                <a href="/php-xue-xi/files-er-wen-jian-de-shang-chuan/">
                     <div class="card-image">
                         
-                        <img src="https://s1.ax1x.com/2020/07/13/UYde3D.jpg" class="responsive-img" alt="$_FILES(一)文件的基本操作">
+                        <img src="https://s1.ax1x.com/2020/07/13/UY0FfK.jpg" class="responsive-img" alt="$_FILES(二)文件的上传">
                         
-                        <span class="card-title">$_FILES(一)文件的基本操作</span>
+                        <span class="card-title">$_FILES(二)文件的上传</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
                             
-文档回顾：PHP 中预定义了几个超级全局变量（superglobals） ，PHP 4.1.0 之后被启用，这意味着它们在一个脚本的全部作用域中都可用。你不需要特别说明，就可以在函数及类中使用。
+在上一节中学习了$_FILES的基本使用，本节将继续学习它的进阶用法：文件的上传与 校验
 
-1、fopen()函数：在 PHP 中 
+##1、创建上传表单
+&lt;form method="post" action="file.php" enctype="multipart/fo
                         
                     </div>
                     <div class="publish-info">
@@ -796,7 +852,7 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
                 <a href="/sui-bi/nin-hao-shi-jie/">
@@ -830,7 +886,6 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
