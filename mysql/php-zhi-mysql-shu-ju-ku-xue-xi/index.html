@@ -1,0 +1,1928 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="PHP之MySQL数据库学习, 学习,笔记,刘洋,塵影">
+    <meta name="description" content="学习笔记，一起奋斗">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>PHP之MySQL数据库学习 | 塵影学习笔记</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+   <!-- 增加每日诗词 -->
+   <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">塵影学习笔记</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">塵影学习笔记</div>
+        <div class="logo-desc">
+            
+            学习笔记，一起奋斗
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/llliuyang" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>点个star
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/llliuyang" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="点个star" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://s1.ax1x.com/2020/07/15/Uwxfk6.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">PHP之MySQL数据库学习</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/php/">
+                                <span class="chip bg-color">php</span>
+                            </a>
+                        
+                            <a href="/tags/MySQL/">
+                                <span class="chip bg-color">MySQL</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/MySQL/" class="post-category">
+                                MySQL
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-07-15
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    1.8k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    7 分
+                </div>
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="MySQL数据库学习笔记-一"><a href="#MySQL数据库学习笔记-一" class="headerlink" title="MySQL数据库学习笔记(一)"></a>MySQL数据库学习笔记(一)</h1><h2 id="一、数据库的创建"><a href="#一、数据库的创建" class="headerlink" title="一、数据库的创建"></a>一、数据库的创建</h2><h3 id="1、创建数据库"><a href="#1、创建数据库" class="headerlink" title="1、创建数据库"></a>1、创建数据库</h3><pre class="line-numbers language-php"><code class="language-php"><span class="token comment" spellcheck="true">//创建数据库</span>
+<span class="token variable">$createDb</span> <span class="token operator">=</span> <span class="token string">"CREATE DATABASE database_name"</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="2、检测数据库创建结果"><a href="#2、检测数据库创建结果" class="headerlink" title="2、检测数据库创建结果"></a>2、检测数据库创建结果</h3><h4 id="2-1、面向对象方法"><a href="#2-1、面向对象方法" class="headerlink" title="2.1、面向对象方法"></a>2.1、面向对象方法</h4><pre class="line-numbers language-php"><code class="language-php"><span class="token keyword">if</span><span class="token punctuation">(</span><span class="token variable">$conn</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token function">query</span><span class="token punctuation">(</span><span class="token variable">$createDb</span><span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">echo</span> <span class="token string">"数据库创建成功！"</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+    <span class="token keyword">echo</span> <span class="token string">"Error creating database: "</span> <span class="token punctuation">.</span> <span class="token variable">$conn</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">error</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="2-2、面向过程方法"><a href="#2-2、面向过程方法" class="headerlink" title="2.2、面向过程方法"></a>2.2、面向过程方法</h4><pre class="line-numbers language-php"><code class="language-php"><span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">mysqli_query</span><span class="token punctuation">(</span><span class="token variable">$conn</span><span class="token punctuation">,</span><span class="token variable">$createDb</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">echo</span> <span class="token string">"数据库创建成功！"</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+    <span class="token keyword">echo</span> <span class="token string">"Error creating database: "</span> <span class="token punctuation">.</span> <span class="token function">mysqli_error</span><span class="token punctuation">(</span><span class="token variable">$conn</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="二、创建数据表"><a href="#二、创建数据表" class="headerlink" title="二、创建数据表"></a>二、创建数据表</h2><h3 id="1、创建表"><a href="#1、创建表" class="headerlink" title="1、创建表"></a>1、创建表</h3><blockquote>
+<p>语法：<code>CREATE TABLE table_name();</code></p>
+</blockquote>
+<p><strong>实例</strong></p>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token variable">$createTable</span> <span class="token operator">=</span> "<span class="token constant">CREATE</span> <span class="token constant">TABLE</span> <span class="token function">members</span> <span class="token punctuation">(</span>
+id <span class="token function">INT</span><span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">)</span> <span class="token constant">UNSIGNED</span> <span class="token constant">AUTO_INCREMENT</span> <span class="token constant">PRIMARY</span> <span class="token constant">KEY</span><span class="token punctuation">,</span>
+姓名 <span class="token function">VARCHAR</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token constant">NOT</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span>
+电话 <span class="token function">VARCHAR</span><span class="token punctuation">(</span><span class="token number">13</span><span class="token punctuation">)</span> <span class="token constant">NOT</span> <span class="token keyword">NULL</span><span class="token punctuation">,</span>
+内容 <span class="token function">VARCHAR</span><span class="token punctuation">(</span><span class="token number">60</span><span class="token punctuation">)</span> <span class="token constant">NOT</span> <span class="token keyword">NULL</span>
+<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>参数说明</strong></p>
+<table>
+<thead>
+<tr>
+<th>约束</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>NOT NULL</td>
+<td>每一行都必须含有值（不能为空），null 值是不允许的。</td>
+</tr>
+<tr>
+<td>DEFAULT</td>
+<td>规定没有给列赋值时的默认值。</td>
+</tr>
+<tr>
+<td>UNIQUE</td>
+<td>保证某列的每行必须有唯一的值。</td>
+</tr>
+<tr>
+<td>CHECK</td>
+<td>保证列中的值符合指定的条件。</td>
+</tr>
+<tr>
+<td>FOREIGN KEY</td>
+<td>保证一个表中的数据匹配另一个表中的值的参照完整性。</td>
+</tr>
+<tr>
+<td>PRIMARY KEY</td>
+<td>NOT NULL 和 UNIQUE 的结合。确保某列（或两个列多个列的结合）有唯一标识，有助于更容易更快速地找到表中的一个特定的记录。</td>
+</tr>
+</tbody></table>
+<h3 id="2、检测表的创建"><a href="#2、检测表的创建" class="headerlink" title="2、检测表的创建"></a>2、检测表的创建</h3><h4 id="2-1、面向对象方法-1"><a href="#2-1、面向对象方法-1" class="headerlink" title="2.1、面向对象方法"></a>2.1、面向对象方法</h4><pre class="line-numbers language-php"><code class="language-php"><span class="token keyword">if</span><span class="token punctuation">(</span><span class="token variable">$conn</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token function">query</span><span class="token punctuation">(</span><span class="token variable">$createTable</span><span class="token punctuation">)</span><span class="token operator">===</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">echo</span> <span class="token string">"数据表创建成功&lt;br>"</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token keyword">echo</span> <span class="token string">'数据表创建错误：'</span> <span class="token punctuation">.</span><span class="token variable">$conn</span> <span class="token operator">-</span><span class="token operator">></span> error<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="2-2、面向过程方法-1"><a href="#2-2、面向过程方法-1" class="headerlink" title="2.2、面向过程方法"></a>2.2、面向过程方法</h4><pre class="line-numbers language-php"><code class="language-php"><span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">mysqli_query</span><span class="token punctuation">(</span><span class="token variable">$conn</span><span class="token punctuation">,</span><span class="token variable">$createTable</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">echo</span> <span class="token string">"数据表创建成功&lt;br>"</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token keyword">echo</span> <span class="token string">'数据表创建错误：'</span> <span class="token punctuation">.</span><span class="token function">mysqli_error</span><span class="token punctuation">(</span><span class="token variable">$conn</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="3、向表中插入数据"><a href="#3、向表中插入数据" class="headerlink" title="3、向表中插入数据"></a>3、向表中插入数据</h3><p>在创建完数据表后，我们可以向表中插入数据，但须遵循一些语法规则：</p>
+<ul>
+<li>PHP 中 SQL 查询语句必须使用引号</li>
+<li>在 SQL 查询语句中的字符串值必须加引号</li>
+<li>数值的值不需要引号</li>
+<li>NULL 值不需要引号</li>
+</ul>
+<h4 id="3-1、语法用法"><a href="#3-1、语法用法" class="headerlink" title="3.1、语法用法"></a>3.1、语法用法</h4><blockquote>
+<p><strong>语法：</strong><br><code>INSERT INTO table_name (column1, column2, column3,...)
+VALUES (value1, value2, value3,...)</code></p>
+</blockquote>
+<p><strong>实例</strong></p>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token comment" spellcheck="true">//参照上方规则：字符串必须加引号</span>
+<span class="token variable">$insertData</span> <span class="token operator">=</span> "<span class="token constant">INSERT</span> <span class="token constant">INTO</span> <span class="token function">members</span> <span class="token punctuation">(</span>姓名<span class="token punctuation">,</span>电话<span class="token punctuation">,</span>内容<span class="token punctuation">)</span>
+<span class="token function">VALUES</span> <span class="token punctuation">(</span><span class="token string">'".$name."'</span><span class="token punctuation">,</span><span class="token variable">$phone</span><span class="token punctuation">,</span><span class="token string">'".$comment."'</span><span class="token punctuation">)</span>"<span class="token punctuation">;</span>
+
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="3-2、检测插入数据结果"><a href="#3-2、检测插入数据结果" class="headerlink" title="3.2、检测插入数据结果"></a>3.2、检测插入数据结果</h4><h5 id="3-2-1、面向对象方法"><a href="#3-2-1、面向对象方法" class="headerlink" title="3.2.1、面向对象方法"></a>3.2.1、面向对象方法</h5><pre class="line-numbers language-php"><code class="language-php"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$conn</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">query</span><span class="token punctuation">(</span><span class="token variable">$insertData</span><span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token constant">TRUE</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">echo</span> <span class="token string">"新记录插入成功"</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token keyword">echo</span> <span class="token string">"Error: "</span> <span class="token punctuation">.</span> <span class="token variable">$insertData</span> <span class="token punctuation">.</span> <span class="token string">"&lt;br>"</span> <span class="token punctuation">.</span> <span class="token variable">$conn</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">error</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="3-2-2、面向过程方法"><a href="#3-2-2、面向过程方法" class="headerlink" title="3.2.2、面向过程方法"></a>3.2.2、面向过程方法</h5><pre class="line-numbers language-php"><code class="language-php"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">mysqli_query</span><span class="token punctuation">(</span><span class="token variable">$conn</span><span class="token punctuation">,</span> <span class="token variable">$insertData</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">echo</span> <span class="token string">"新记录插入成功"</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token keyword">echo</span> <span class="token string">"Error: "</span> <span class="token punctuation">.</span> <span class="token variable">$insertData</span> <span class="token punctuation">.</span> <span class="token string">"&lt;br>"</span> <span class="token punctuation">.</span>  <span class="token function">mysqli_error</span><span class="token punctuation">(</span><span class="token variable">$conn</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="三、数据库连接"><a href="#三、数据库连接" class="headerlink" title="三、数据库连接"></a>三、数据库连接</h2><h3 id="1、面向对象方法"><a href="#1、面向对象方法" class="headerlink" title="1、面向对象方法"></a>1、面向对象方法</h3><pre class="line-numbers language-php"><code class="language-php"><span class="token comment" spellcheck="true">//数据库连接</span>
+<span class="token variable">$conn</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">mysqli</span><span class="token punctuation">(</span><span class="token variable">$servername</span><span class="token punctuation">,</span><span class="token variable">$username</span><span class="token punctuation">,</span><span class="token variable">$password</span><span class="token punctuation">,</span><span class="token variable">$database_name</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">//连接检测</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token variable">$conn</span> <span class="token operator">-</span><span class="token operator">></span> connect_error<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">die</span><span class="token punctuation">(</span><span class="token string">"Connection failed:"</span><span class="token punctuation">.</span><span class="token variable">$conn</span> <span class="token operator">-</span><span class="token operator">></span> connect_error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token keyword">echo</span> <span class="token string">"数据库连接成功。&lt;br>"</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="2、面向过程方法"><a href="#2、面向过程方法" class="headerlink" title="2、面向过程方法"></a>2、面向过程方法</h3><pre class="line-numbers language-php"><code class="language-php"><span class="token comment" spellcheck="true">//数据库连接</span>
+<span class="token variable">$conn</span> <span class="token operator">=</span> <span class="token function">mysqli_connect</span><span class="token punctuation">(</span><span class="token variable">$servername</span><span class="token punctuation">,</span><span class="token variable">$username</span><span class="token punctuation">,</span><span class="token variable">$password</span><span class="token punctuation">,</span><span class="token variable">$database_name</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">//检测连接</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token variable">$conn</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">die</span><span class="token punctuation">(</span><span class="token string">"Connection failed: "</span> <span class="token punctuation">.</span><span class="token function">mysqli_connect_error</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token keyword">echo</span> <span class="token string">"数据库连接成功。"</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="四、从数据库读取数据"><a href="#四、从数据库读取数据" class="headerlink" title="四、从数据库读取数据"></a>四、从数据库读取数据</h2><blockquote>
+<p>语法：</p>
+<ul>
+<li><code>SELECT column_name(s) FROM table_name</code></li>
+<li><code>SELECT * FROM table_name</code> 读取所有字段</li>
+</ul>
+</blockquote>
+<h3 id="1、面向对象方法-1"><a href="#1、面向对象方法-1" class="headerlink" title="1、面向对象方法"></a>1、面向对象方法</h3><pre class="line-numbers language-php"><code class="language-php"><span class="token comment" spellcheck="true">//读取数据</span>
+<span class="token variable">$fecth</span> <span class="token operator">=</span> <span class="token string">"SELECT * FROM members"</span><span class="token punctuation">;</span>
+<span class="token variable">$res</span> <span class="token operator">=</span> <span class="token variable">$conn</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token function">query</span><span class="token punctuation">(</span><span class="token variable">$fecth</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">//检测读取结果并输出</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token variable">$res</span> <span class="token operator">-</span><span class="token operator">></span> num_rows <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+<span class="token keyword">while</span><span class="token punctuation">(</span><span class="token variable">$row</span> <span class="token operator">=</span> <span class="token variable">$res</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">fetch_array</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">echo</span> <span class="token operator">&lt;</span><span class="token operator">&lt;</span><span class="token operator">&lt;</span><span class="token constant">HTML</span>
+    <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tbodyrow<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
+      <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>id tbody<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span><span class="token punctuation">{</span><span class="token variable">$row</span><span class="token punctuation">[</span><span class="token string">"id"</span><span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span></span>
+      <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>name tbody<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span><span class="token punctuation">{</span><span class="token variable">$row</span><span class="token punctuation">[</span><span class="token string">"姓名"</span><span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span></span>
+      <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>phone tbody<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span><span class="token punctuation">{</span><span class="token variable">$row</span><span class="token punctuation">[</span><span class="token string">"电话"</span><span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span></span>
+      <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>comment tbody<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span><span class="token punctuation">{</span><span class="token variable">$row</span><span class="token punctuation">[</span><span class="token string">"内容"</span><span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span></span>
+    <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></span>
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">></span></span></span>
+<span class="token constant">HTML</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+<span class="token keyword">echo</span> <span class="token string">"0结果"</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="2、面向过程方法-1"><a href="#2、面向过程方法-1" class="headerlink" title="2、面向过程方法"></a>2、面向过程方法</h3><pre class="line-numbers language-php"><code class="language-php"><span class="token comment" spellcheck="true">//读取数据</span>
+<span class="token variable">$fecth</span> <span class="token operator">=</span> <span class="token string">"SELECT * FROM members"</span><span class="token punctuation">;</span>
+<span class="token variable">$res</span> <span class="token operator">=</span> <span class="token function">mysqli_query</span><span class="token punctuation">(</span><span class="token variable">$conn</span><span class="token punctuation">,</span><span class="token variable">$fecth</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">//检测读取结果并输出</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">mysqli_num_rows</span><span class="token punctuation">(</span><span class="token variable">$res</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+<span class="token keyword">while</span><span class="token punctuation">(</span><span class="token variable">$row</span> <span class="token operator">=</span> <span class="token function">mysqli_fetch_array</span><span class="token punctuation">(</span><span class="token variable">$res</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">echo</span> <span class="token operator">&lt;</span><span class="token operator">&lt;</span><span class="token operator">&lt;</span><span class="token constant">HTML</span>
+    <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tbodyrow<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
+      <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>id tbody<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span><span class="token punctuation">{</span><span class="token variable">$row</span><span class="token punctuation">[</span><span class="token string">"id"</span><span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span></span>
+      <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>name tbody<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span><span class="token punctuation">{</span><span class="token variable">$row</span><span class="token punctuation">[</span><span class="token string">"姓名"</span><span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span></span>
+      <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>phone tbody<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span><span class="token punctuation">{</span><span class="token variable">$row</span><span class="token punctuation">[</span><span class="token string">"电话"</span><span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span></span>
+      <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>comment tbody<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span><span class="token punctuation">{</span><span class="token variable">$row</span><span class="token punctuation">[</span><span class="token string">"内容"</span><span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span></span>
+    <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></span>
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">></span></span></span>
+<span class="token constant">HTML</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+<span class="token keyword">echo</span> <span class="token string">"0结果"</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h3><h4 id="1、WHERE"><a href="#1、WHERE" class="headerlink" title="1、WHERE"></a>1、WHERE</h4><blockquote>
+<p>WHERE 子句用于提取满足指定标准的的记录。</p>
+</blockquote>
+<p><strong>语法：</strong></p>
+<pre><code>SELECT column_name(s) 
+FROM table_name
+WHERE column_name operator value</code></pre><p><strong>实例</strong></p>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token variable">$where</span> <span class="token operator">=</span> <span class="token string">"SELECT * FROM members WHERE 姓名='张三' "</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h4 id="2、ORDER-BY"><a href="#2、ORDER-BY" class="headerlink" title="2、ORDER BY"></a>2、ORDER BY</h4><blockquote>
+<p>ORDER BY 关键词用于对记录集中的数据进行排序。<br>默认升序排序，可以使用 DESC 进行降序排序。</p>
+</blockquote>
+<p><strong>语法：</strong></p>
+<pre><code>SELECT column_name(s)
+FROM table_name
+ORDER BY column_name(s) ASC|DESC</code></pre><p><strong>实例</strong></p>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token variable">$order</span> <span class="token operator">=</span> "<span class="token constant">SELECT</span> <span class="token operator">*</span> <span class="token constant">FROM</span> members <span class="token constant">ORDER</span> <span class="token constant">BY</span> id <span class="token constant">DESC</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><strong>根据两列进行排序</strong></p>
+<p>可以根据多个列进行排序。当按照多个列进行排序时，只有第一列的值相同时才使用第二列：</p>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token constant">SELECT</span> <span class="token function">column_name</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span>
+<span class="token constant">FROM</span> table_name
+<span class="token constant">ORDER</span> <span class="token constant">BY</span> column1<span class="token punctuation">,</span> column2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><strong>特殊：拼音排序</strong></p>
+<p>拼音排序需要根据字符集采用的编码决定使用方法</p>
+<table>
+<thead>
+<tr>
+<th>字符集</th>
+<th>使用方法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>gbk (中文编码)</td>
+<td>直接在查询语句后边添加 <code>ORDER BY</code></td>
+</tr>
+<tr>
+<td>utf8 (万国码)</td>
+<td>先对字段进行转码然后排序。<br>方法：<code>CONVERT(row_title using gbk)</code></td>
+</tr>
+</tbody></table>
+<p>实例：现有表格如下。对表格按姓名拼音排序</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>姓名</th>
+<th>性别</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>丁一</td>
+<td>女</td>
+</tr>
+<tr>
+<td>2</td>
+<td>牛二</td>
+<td>男</td>
+</tr>
+<tr>
+<td>3</td>
+<td>张三</td>
+<td>男</td>
+</tr>
+</tbody></table>
+<p>执行操作(由于原本是拼音升序，所以这里我们用降序来区别)</p>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token variable">$orderPy</span> <span class="token operator">=</span> "<span class="token constant">SELECT</span> <span class="token operator">*</span> <span class="token constant">FROM</span> members
+<span class="token constant">ORDER</span> <span class="token constant">BY</span> <span class="token function">CONVERT</span><span class="token punctuation">(</span>姓名 using gbk<span class="token punctuation">)</span> <span class="token constant">DESC</span>"<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>输出结果：</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>姓名</th>
+<th>性别</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>3</td>
+<td>张三</td>
+<td>男</td>
+</tr>
+<tr>
+<td>2</td>
+<td>牛二</td>
+<td>男</td>
+</tr>
+<tr>
+<td>1</td>
+<td>丁一</td>
+<td>女</td>
+</tr>
+</tbody></table>
+<h4 id="3、UPDATE"><a href="#3、UPDATE" class="headerlink" title="3、UPDATE"></a>3、UPDATE</h4><blockquote>
+<p>UPDATE 语句用于更新数据库表中已存在的记录。</p>
+</blockquote>
+<p><strong>语法：</strong></p>
+<pre><code>UPDATE table_name
+SET column1=value, column2=value2,...
+WHERE some_column=some_value</code></pre><blockquote>
+<p>注意：UPDATE 语法中的 WHERE 子句。WHERE 子句规定了哪些记录需要更新。如果您想省去 WHERE 子句，所有的记录都会被更新！</p>
+</blockquote>
+<p><strong>实例</strong></p>
+<p>现有如下表格：（已设置降序排列）</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>姓名</th>
+<th>电话</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>3</td>
+<td>张三</td>
+<td>333</td>
+<td>我叫张三</td>
+</tr>
+<tr>
+<td>2</td>
+<td>牛二</td>
+<td>222</td>
+<td>我叫牛二</td>
+</tr>
+<tr>
+<td>1</td>
+<td>丁一</td>
+<td>111</td>
+<td>我叫丁一</td>
+</tr>
+</tbody></table>
+<p>修改更新表中 张三 为 李四</p>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token variable">$updateData</span> <span class="token operator">=</span> "<span class="token constant">UPDATE</span> members <span class="token constant">SET</span> 姓名<span class="token operator">=</span><span class="token string">'李四'</span>
+<span class="token constant">WHERE</span> 姓名 <span class="token operator">=</span> <span class="token string">'张三'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>输出结果</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>姓名</th>
+<th>电话</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>3</td>
+<td>李四</td>
+<td>333</td>
+<td>我叫张三</td>
+</tr>
+<tr>
+<td>2</td>
+<td>牛二</td>
+<td>222</td>
+<td>我叫牛二</td>
+</tr>
+<tr>
+<td>1</td>
+<td>丁一</td>
+<td>111</td>
+<td>我叫丁一</td>
+</tr>
+</tbody></table>
+<p><strong>UPDATE方法可以同时修改一条数据的多个字段</strong></p>
+<p>修改更新表中</p>
+<ul>
+<li>张三 ——&gt; 李四</li>
+<li>333 ——&gt; 444</li>
+<li>我叫张三 ——&gt; 我叫李四</li>
+</ul>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token variable">$updateData</span> <span class="token operator">=</span> "<span class="token constant">UPDATE</span> members <span class="token constant">SET</span> 
+姓名<span class="token operator">=</span><span class="token string">'李四'</span><span class="token punctuation">,</span>电话 <span class="token operator">=</span> <span class="token string">'444'</span><span class="token punctuation">,</span> 内容 <span class="token operator">=</span> <span class="token string">'我叫李四'</span>
+<span class="token constant">WHERE</span> 姓名 <span class="token operator">=</span> <span class="token string">'张三'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>输出结果：</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>姓名</th>
+<th>电话</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>3</td>
+<td>李四</td>
+<td>444</td>
+<td>我叫李四</td>
+</tr>
+<tr>
+<td>2</td>
+<td>牛二</td>
+<td>222</td>
+<td>我叫牛二</td>
+</tr>
+<tr>
+<td>1</td>
+<td>丁一</td>
+<td>111</td>
+<td>我叫丁一</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>id设置为 <code>PRIMARY KEY</code>,不要轻易去改变它,若需要改变，不可与已存在的重复，否则无法更新数据。</p>
+</blockquote>
+<h4 id="4、DELETE"><a href="#4、DELETE" class="headerlink" title="4、DELETE"></a>4、DELETE</h4><blockquote>
+<p>DELETE 语句用于从数据库表中<strong>删除行</strong>。</p>
+</blockquote>
+<p><strong>语法：</strong></p>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token constant">DELETE</span> <span class="token constant">FROM</span> table_name
+<span class="token constant">WHERE</span> some_column <span class="token operator">=</span> some_value<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<blockquote>
+<p>注意：DELETE中的WHERE子句。WHERE 子句规定了哪些记录需要删除。如果您想省去 WHERE 子句，所有的记录都会被删除！</p>
+</blockquote>
+<p><strong>实例</strong></p>
+<p>现有表格同上，需要删除id为3的行：</p>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token variable">$delete</span> <span class="token operator">=</span> " <span class="token constant">DELETE</span> <span class="token constant">FROM</span> members
+<span class="token constant">WHERE</span> 姓名 <span class="token operator">=</span> <span class="token string">'李四'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>输出结果：</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>姓名</th>
+<th>电话</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2</td>
+<td>牛二</td>
+<td>222</td>
+<td>我叫牛二</td>
+</tr>
+<tr>
+<td>1</td>
+<td>丁一</td>
+<td>111</td>
+<td>我叫丁一</td>
+</tr>
+</tbody></table>
+<p><code>drop</code> <code>truncate</code>和 <code>delete</code>都可以对数据表进行删除操作，具体区别如下表：</p>
+<table>
+<thead>
+<tr>
+<th>语句</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>drop</td>
+<td><strong>删除表</strong>。删除表及其结构。<strong>不可回滚</strong></td>
+</tr>
+<tr>
+<td>truncate</td>
+<td><strong>清空表</strong>。删除表中所有数据，保留表结构。<strong>不可回滚</strong></td>
+</tr>
+<tr>
+<td>delete</td>
+<td><strong>删除行</strong>。删除操作作为事务记录在日志中。<strong>可以回滚</strong></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><code>TRUNCATE</code>与不带 <code>WHERE</code> 的 <code>DELETE</code> 都是删除表数据，保留表结构。</p>
+</blockquote>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">塵影</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://llliuyang.github.io/mysql/php-zhi-mysql-shu-ju-ku-xue-xi/">https://llliuyang.github.io/mysql/php-zhi-mysql-shu-ju-ku-xue-xi/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/" target="_blank">塵影学习笔记</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/php/">
+                                    <span class="chip bg-color">php</span>
+                                </a>
+                            
+                                <a href="/tags/MySQL/">
+                                    <span class="chip bg-color">MySQL</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,qzone,wechat,weibo" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'wodbEEv0c7Q3JNrxCTE3RPRm-gzGzoHsz',
+        appKey: 'kCsxAxnaQx8trlt2OCppeWVz',
+        notify: 'true' === 'true',
+        verify: 'true' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'retro',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: '说点什么吧...'
+    });
+</script>
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/mysql/php-zhi-mysql-shu-ju-ku-xue-xi/">
+                    <div class="card-image">
+                        
+                        <img src="https://s1.ax1x.com/2020/07/15/Uwxfk6.jpg" class="responsive-img" alt="PHP之MySQL数据库学习">
+                        
+                        <span class="card-title">PHP之MySQL数据库学习</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            MySQL数据库学习笔记(一)一、数据库的创建1、创建数据库//创建数据库
+$createDb = "CREATE DATABASE database_name";
+2、检测数据库创建结果2.1、面向对象方法if($conn -> quer
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-15
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/MySQL/" class="post-category">
+                                    MySQL
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/php/">
+                        <span class="chip bg-color">php</span>
+                    </a>
+                    
+                    <a href="/tags/MySQL/">
+                        <span class="chip bg-color">MySQL</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/php-xue-xi/wen-jian-cao-zuo-er-wen-jian-de-shang-chuan/">
+                    <div class="card-image">
+                        
+                        <img src="https://s1.ax1x.com/2020/07/13/UY0FfK.jpg" class="responsive-img" alt="$_FILES(二)文件的上传">
+                        
+                        <span class="card-title">$_FILES(二)文件的上传</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+在上一节中学习了$_FILES的基本使用，本节将继续学习它的进阶用法：文件的上传与 校验
+
+1、创建上传表单&lt;form method="post" action="file.php" enctype="multipart/form-
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-13
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/PHP%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    PHP学习
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/php/">
+                        <span class="chip bg-color">php</span>
+                    </a>
+                    
+                    <a href="/tags/FILES/">
+                        <span class="chip bg-color">$_FILES</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="100794110"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.6'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2020</span>
+            <a href="/about" target="_blank">塵影</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;努力，奋斗！
+            <!-- |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a> -->
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">3.9k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2020";
+                    var startMonth = "7";
+                    var startDate = "12";
+                    var startHour = "12";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/llliuyang" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1714610279" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1714610279" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+    <a href="https://weibo.com/u/2704215210?is_all=1" class="tooltipped" target="_blank" data-tooltip="关注我的微博:变质的洋流" data-position="top" data-delay="50">
+        <i class="fab fa-weibo"></i>
+    </a>
+
+
+
+
+
+
+
+    <a class="tooltipped" target="_blank" data-tooltip="微信:LY1212M" data-position="top" data-delay="50">
+        <i class="fab fa-weixin"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+
+    
+    
+    <script type="text/javascript" size="150" alpha='0.6'
+        zIndex="-1" src="/libs/background/ribbon.min.js" async="async"></script>
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
